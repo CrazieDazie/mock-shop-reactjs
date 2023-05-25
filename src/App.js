@@ -1,26 +1,30 @@
-import { useState } from "react";
-import { data } from './data';
-import Clothes from "./Clothes";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import  Home from "./Home";
 import './App.css';
-import Buttons from "./Buttons";
+import Contact from "./Contact.js";
+import About from "./About";
 
 function App() {
-  
-  const [clothes, setClothes] = useState(data);
+  return <Router>
+  <nav>
+    <Link to="/" className="link">Shop</Link>
+    <Link to="/about" className="link">About</Link>
+    <Link to="/contact" className="link">Contact Us</Link>
+  </nav>
 
-  const chosenClothes = (searchTerm) => {
-    const newClothes = data.filter(element => element.searchTerm === searchTerm);
-    setClothes(newClothes);
-  }
+  <Routes>
+    <Route path="/" element={<Home />}/>
+    <Route path="/about" element={<About />}/>
+    <Route path="/contact" element={<Contact />}/>
+  </Routes>
 
-
-  return(<div>
-    <div className="cont">
-      <h2 className="back">Free Standard Shipping</h2>
-    </div>
-    <Buttons filteredClothes={chosenClothes}/>
-    <Clothes itemsForSale={clothes}/>
-  </div>)
+  </Router>
 }
 
 export default App;

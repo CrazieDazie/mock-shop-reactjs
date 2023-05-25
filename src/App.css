@@ -1,3 +1,17 @@
+nav {
+  display: flex;
+  justify-content: center;
+  background: #cfd8dc;
+  padding: 15px;
+}
+
+.link {
+  padding: 10px 40px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
